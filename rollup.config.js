@@ -36,7 +36,7 @@ export default [
     input: 'lib/cli.ts',
     output: {
       file: 'dist/cli.js',
-      format: 'cjs',
+      format: 'esm',
     },
     onwarn(warning, warn) {
       if (warning.code === 'THIS_IS_UNDEFINED') return;

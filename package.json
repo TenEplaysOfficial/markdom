@@ -1,6 +1,6 @@
 {
   "name": "@tenedev/markdom",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Markdown and HTML parser for Node.js with TOC generation and anchor support.",
   "keywords": [
     "nodejs",
