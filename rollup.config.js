@@ -5,6 +5,7 @@ import dts from 'rollup-plugin-dts';
 import terser from '@rollup/plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss';
+import json from '@rollup/plugin-json';
 import packageJson from './package.json';
 
 export default [
@@ -29,6 +30,24 @@ export default [
       typescript({ tsconfig: './tsconfig.json' }),
       terser(),
       postcss(),
+    ],
+  },
+  {
+    input: 'lib/cli.ts',
+    output: {
+      file: 'dist/cli.js',
+      format: 'cjs',
+    },
+    onwarn(warning, warn) {
+      if (warning.code === 'THIS_IS_UNDEFINED') return;
+      warn(warning);
+    },
+    plugins: [
+      resolve(),
+      commonjs(),
+      json(),
+      terser(),
+      typescript({ tsconfig: './tsconfig.json' }),
     ],
   },
   {

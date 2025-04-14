@@ -10,8 +10,11 @@ function slugify(title: string): string {
 function renderTOCHTML(toc: TOC[]): string {
   const generateList = (level: number, toc: TOC[]) => {
     const items = toc
-      .filter(item => item.level === level)
-      .map(item => `<li class="toc-level-${item.level}"><a href="#${item.id}">${item.title}</a></li>`)
+      .filter((item) => item.level === level)
+      .map(
+        (item) =>
+          `<li class="toc-level-${item.level}"><a href="#${item.id}">${item.title}</a></li>`,
+      )
       .join('');
     if (items) {
       return `<ul>${items}</ul>`;
@@ -19,20 +22,28 @@ function renderTOCHTML(toc: TOC[]): string {
     return '';
   };
 
-  return toc.reduce((acc: string[], item: TOC) => {
-    if (acc[item.level - 1]) {
-      acc[item.level - 1] += `<li class="toc-level-${item.level}"><a href="#${item.id}">${item.title}</a></li>`;
-    } else {
-      acc[item.level - 1] = `<ul><li class="toc-level-${item.level}"><a href="#${item.id}">${item.title}</a></li></ul>`;
-    }
-    return acc;
-  }, []).join('');
+  return toc
+    .reduce((acc: string[], item: TOC) => {
+      if (acc[item.level - 1]) {
+        acc[item.level - 1] +=
+          `<li class="toc-level-${item.level}"><a href="#${item.id}">${item.title}</a></li>`;
+      } else {
+        acc[item.level - 1] =
+          `<ul><li class="toc-level-${item.level}"><a href="#${item.id}">${item.title}</a></li></ul>`;
+      }
+      return acc;
+    }, [])
+    .join('');
 }
 
 function parse(md: string): { html: string; toc: TOC[] } {
   const toc: TOC[] = [];
 
-  const renderHeading = (level: number, title: string, collect: boolean): string => {
+  const renderHeading = (
+    level: number,
+    title: string,
+    collect: boolean,
+  ): string => {
     const id = slugify(title);
     if (collect) toc.push({ level, id, title });
     return `<h${level} id="${id}"><a href="#${id}" class="heading-anchor">🔗</a> ${title}</h${level}>`;
@@ -42,7 +53,7 @@ function parse(md: string): { html: string; toc: TOC[] } {
     return md
       .replace(
         /```([\s\S]*?)```/g,
-        (_, code) => `<pre><code>${code.trim()}</code></pre>`
+        (_, code) => `<pre><code>${code.trim()}</code></pre>`,
       )
       .replace(/^###### (.+)$/gm, (_, t) => renderHeading(6, t, collectTOC))
       .replace(/^##### (.+)$/gm, (_, t) => renderHeading(5, t, collectTOC))
@@ -79,5 +90,5 @@ function parse(md: string): { html: string; toc: TOC[] } {
   };
 }
 
-export const markdom ={parse}
-export default markdom
+export const markdom = { parse };
+export default markdom;
