@@ -55,7 +55,7 @@
     "README.md"
   ],
   "bin": {
-    "@tenedev/markdom": "./dist/cli.js"
+    "markdom": "./dist/cli.js"
   },
   "scripts": {
     "prepare": "husky install",
