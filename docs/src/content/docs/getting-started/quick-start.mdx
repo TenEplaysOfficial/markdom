@@ -1,0 +1,35 @@
+---
+title: Quick Start
+description: Get started quickly using the Node.js API or CLI with a minimal Markdown-to-HTML example.
+---
+
+**Markdom** is a fast, customizable Markdown-to-HTML parser. You can use it via the Node.js API or through the CLI for your Markdown conversion needs.
+
+### Using the Node.js API
+
+To use **Markdom** programmatically, follow this simple example:
+
+```ts
+import { markdom } from '@tenedev/markdom';
+
+const md = '# Hello World';
+const { html, toc } = markdom.parse(md);
+console.log(html, toc);
+```
+
+- **html**: The generated HTML from the provided Markdown.
+- **toc**: A Table of Contents (TOC) based on the headings in the Markdown.
+
+### Using the CLI
+
+To use **Markdom** through the command line, run the following:
+
+```bash
+npx @tenedev/markdom README.md -o output.html
+```
+
+This will convert the `README.md` file to HTML and save it as `output.html`.
+
+### Requirements
+
+- **Node.js version 16 or higher** is required for both the Node.js API and the CLI.

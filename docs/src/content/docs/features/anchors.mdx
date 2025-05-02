@@ -1,0 +1,41 @@
+---
+title: Heading Anchors
+description: Learn how Markdom adds anchor links to headings, making your content easily navigable.
+---
+
+Markdom automatically generates anchor links for headings to improve navigation and allow users to quickly jump to specific sections of your content. This feature is particularly useful for long documents, providing a way to create internal links for headings.
+
+### How It Works
+
+For each heading in your Markdown file, Markdom generates an anchor link with the same ID as the heading's text (converted to lowercase and with spaces replaced by hyphens). The anchor link is wrapped around the heading text, making the heading itself clickable.
+
+### Example
+
+#### Input Markdown:
+
+```markdown
+# Heading
+```
+
+#### Output HTML:
+
+```html
+<h1 id="heading">
+  <a href="#heading">Heading</a>
+</h1>
+```
+
+The heading `# Heading` is converted to an HTML `<h1>` element with an `id` attribute and an anchor `<a>` tag that links to it. This allows users to click on the heading text and be directed to the same section of the document.
+
+### Sample HTML:
+
+```html
+<h1 id="heading">
+  <a href="#heading">Heading</a>
+</h1>
+```
+
+### Best Practices
+
+- **Unique heading IDs**: Ensure your headings have unique, descriptive titles to generate meaningful anchor links.
+- **Anchor links for navigation**: This feature works seamlessly with Table of Contents (TOC) generation, allowing users to click on TOC items and navigate to specific sections of the document.

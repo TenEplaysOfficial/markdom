@@ -1,0 +1,60 @@
+---
+title: Using the CLI
+description: Explore the command-line interface for Markdom with examples of input/output flags and best practices.
+---
+
+Markdom provides a simple CLI for converting Markdown files to HTML. This is useful for quick, one-off conversions without writing any code.
+
+### Basic Usage
+
+To convert a Markdown file to HTML using the CLI, run the following command:
+
+```bash
+npx @tenedev/markdom file.md -o file.html
+```
+
+- `file.md`: The input Markdown file you want to convert.
+- `-o file.html`: The output HTML file where the converted content will be saved (make sure it ends in `.html`).
+
+### CLI Flags
+
+The Markdom CLI supports the following flags:
+
+- `-o <file.html>`: Specifies the output HTML file name. The file extension must be `.html`.
+
+For example:
+
+```bash
+npx @tenedev/markdom README.md -o output.html
+```
+
+This command will take the `README.md` file and convert it into an HTML file named `output.html`.
+
+### Best Practices
+
+- **Use a clear output filename**: Always specify a clear, meaningful output filename (e.g., `index.html` or `documentation.html`).
+- **Ensure correct file extensions**: The output file must always end with `.html` for proper rendering and recognition by browsers.
+- **Check file paths**: Ensure that both the input Markdown file and the output HTML file are located in the correct directories relative to where you run the command.
+
+### Example
+
+#### Input Markdown (`example.md`):
+
+```markdown
+# Hello World
+
+This is an example of a Markdown file converted to HTML.
+```
+
+#### Command:
+
+```bash
+npx @tenedev/markdom example.md -o example.html
+```
+
+#### Output HTML (`example.html`):
+
+```html
+<h1>Hello World</h1>
+<p>This is an example of a Markdown file converted to HTML.</p>
+```

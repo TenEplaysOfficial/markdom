@@ -30,11 +30,24 @@ export default defineConfig({
       ],
       sidebar: [
         {
-          label: 'Guides',
-          items: [
-            // Each item here is one entry in the navigation menu.
-            { label: 'Example Guide', slug: 'guides/example' },
-          ],
+          label: 'Overview',
+          autogenerate: { directory: 'overview' },
+        },
+        {
+          label: 'Getting Started',
+          autogenerate: { directory: 'getting-started' },
+        },
+        {
+          label: 'Usage',
+          autogenerate: { directory: 'usage' },
+        },
+        {
+          label: 'Features',
+          autogenerate: { directory: 'features' },
+        },
+        {
+          label: 'Examples',
+          autogenerate: { directory: 'examples' },
         },
         {
           label: 'Reference',

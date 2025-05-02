@@ -686,6 +686,11 @@
   dependencies:
     tslib "^2.8.0"
 
+"@tenedev/markdom@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@tenedev/markdom/-/markdom-1.0.3.tgz#de6df38a633d17da2b5c950130b9f154c8da1e85"
+  integrity sha512-j6B1H0tOcJzbKLu6viLB+P8I/TXVLZtV8yqqqkiF69wwW9Tsh7pjxmZy0r4mVqWW2eqng0ftQL+iVn/IDybFzw==
+
 "@types/debug@^4.0.0":
   version "4.1.12"
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-4.1.12.tgz#a155f21690871953410df4b6b6f53187f0500917"
