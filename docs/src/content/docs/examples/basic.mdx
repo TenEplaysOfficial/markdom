@@ -1,0 +1,35 @@
+---
+title: Markdown to HTML Example
+description: A basic before-and-after example of converting a Markdown file to HTML using Markdom.
+---
+
+This example shows how **Markdom** converts Markdown into clean HTML with anchor links and an optional Table of Contents.
+
+### Markdown Input
+
+```md
+<!-- TOC-HERE -->
+
+# Intro
+
+Text.
+```
+
+### HTML Output
+
+```html
+<nav class="markdown-toc">
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+  </ul>
+</nav>
+
+<h1 id="intro"><a href="#intro">🔗</a> Intro</h1>
+<p>Text.</p>
+```
+
+## Key Features Illustrated
+
+- **TOC Insertion**: Automatically generates a Table of Contents from headings.
+- **Heading Anchors**: Adds `id` attributes and anchor links to headings.
+- **Clean Output**: Outputs semantic HTML for paragraphs and other elements.

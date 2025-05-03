@@ -55,15 +55,17 @@
     "README.md"
   ],
   "bin": {
-    "@tenedev/markdom": "./dist/cli.js"
+    "markdom": "./dist/cli.js"
   },
   "scripts": {
     "prepare": "husky install",
     "test": "vitest run",
     "build": "rollup -c --bundleConfigAsCjs",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "release": "release-it"
   },
   "devDependencies": {
+    "@release-it/conventional-changelog": "^10.0.1",
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.1",
@@ -74,6 +76,7 @@
     "husky": "^9.1.7",
     "ora": "^8.2.0",
     "prettier": "^3.5.3",
+    "release-it": "^19.0.1",
     "rollup": "^4.40.0",
     "rollup-plugin-dts": "^6.2.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",

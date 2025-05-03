@@ -1,0 +1,66 @@
+---
+title: Table of Contents Generation
+description: Understand how Markdom generates a structured Table of Contents based on Markdown headings.
+---
+
+Markdom can automatically generate a Table of Contents (TOC) by analyzing the headings in your Markdown document. This is especially helpful for longer content, enabling users to navigate easily between sections.
+
+## How It Works
+
+To insert a TOC, add the placeholder `<!-- TOC-HERE -->` anywhere in your Markdown file. Markdom will replace this comment with a structured HTML navigation element based on the headings it detects.
+
+### Example
+
+#### Input Markdown:
+
+```markdown
+# Introduction
+
+<!-- TOC-HERE -->
+
+## Getting Started
+
+## Features
+```
+
+#### Output HTML:
+
+```html
+<h1 id="introduction">
+  <a href="#introduction">Introduction</a>
+</h1>
+
+<nav class="markdown-toc">
+  <ul>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#features">Features</a></li>
+  </ul>
+</nav>
+
+<h2 id="getting-started">
+  <a href="#getting-started">Getting Started</a>
+</h2>
+<h2 id="features">
+  <a href="#features">Features</a>
+</h2>
+```
+
+## Output Structure
+
+The TOC is rendered as:
+
+```html
+<nav class="markdown-toc">
+  <ul>
+    <li><a href="#heading">Heading</a></li>
+    <!-- More list items for each heading -->
+  </ul>
+</nav>
+```
+
+:::note
+
+- Only headings from levels `h2` to `h6` are included in the TOC by default (customizable in future versions).
+- Each TOC item links to the corresponding anchor generated from the heading text.
+- The `markdown-toc` class is added to the `<nav>` element for easy styling.
+  :::

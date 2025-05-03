@@ -1,0 +1,67 @@
+---
+title: API Reference
+description: Detailed reference for the Markdom API, including functions, options, and usage examples.
+---
+
+## `markdom.parse()`
+
+Converts a Markdown string into HTML and a Table of Contents (TOC) structure.
+
+### Signature
+
+```ts
+function parse(md: string): {
+  html: string;
+  toc: TOCItem[];
+};
+```
+
+### Parameters
+
+- `md` (`string`): Markdown input to be parsed.
+
+### Returns
+
+An object containing:
+
+- `html` (`string`): The rendered HTML string.
+- `toc` (`TOCItem[]`): A list of TOC entries generated from headings.
+
+### TOC Item Structure
+
+```ts
+interface TOCItem {
+  id: string; // The slugified heading ID
+  title: string; // The original heading text
+  level: number; // Heading level (e.g., 1 for h1, 2 for h2)
+}
+```
+
+### Example
+
+```ts
+import { markdom } from '@tenedev/markdom';
+
+const markdown = `
+# Title
+## Subtitle
+`;
+
+const { html, toc } = markdom.parse(markdown);
+
+console.log(html);
+/*
+<h1 id="title"><a href="#title">🔗</a> Title</h1>
+<h2 id="subtitle"><a href="#subtitle">🔗</a> Subtitle</h2>
+*/
+
+console.log(toc);
+/*
+[
+  { id: "title", title: "Title", level: 1 },
+  { id: "subtitle", title: "Subtitle", level: 2 }
+]
+*/
+```
+
+> This API is synchronous and does not require any file I/O.

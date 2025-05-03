@@ -1,0 +1,36 @@
+---
+title: Welcome to Markdom
+description: A Markdown and HTML parser for Node.js with TOC generation and anchor support.
+template: splash
+hero:
+  tagline: Parse Markdown and HTML with ease
+  image:
+    file: ../../assets/houston.webp
+  actions:
+    - text: Overview
+      link: /overview
+      icon: right-arrow
+    - text: API Reference
+      link: /reference
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Features
+
+<CardGrid stagger>
+  <Card title="Parse Markdown & HTML" icon="seti:code-search">
+    Use `markdom.parse` to convert Markdown to clean, anchor-linked HTML with TOC generation.
+  </Card>
+  <Card title="Use the CLI" icon="comment">
+    Run `npx @tenedev/markdom <file.md>` to output HTML right from your terminal.
+  </Card>
+  <Card title="Customize your Output" icon="seti:todo">
+    Control TOC structure, heading anchors, and output styling to fit your needs.
+  </Card>
+  <Card title="Read the Docs" icon="open-book">
+    Learn more in [the official Markdom documentation](https://github.com/TenEplaysOfficial/markdom).
+  </Card>
+</CardGrid>
