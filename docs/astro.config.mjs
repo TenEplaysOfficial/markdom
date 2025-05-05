@@ -11,6 +11,7 @@ export default defineConfig({
       editLink: {
         baseUrl: 'https://github.com/teneplaysofficial/markdom/edit/main/docs/',
       },
+      lastUpdated: true,
       social: [
         {
           icon: 'npm',
